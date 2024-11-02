@@ -30,7 +30,7 @@ public class GajiKaryawan {
 
         // Validasi input kategori
         if (kategoriIndex < 0 || kategoriIndex >= kategori.length) {
-            System.out.println("Kategori tidak valid.");
+            System.out.println("\nKategori tidak valid.");
             return;
         }
 
