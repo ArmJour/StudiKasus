@@ -1,3 +1,4 @@
+
 import java.util.Scanner;
 
 public class Modul1 {
@@ -69,11 +70,11 @@ public class Modul1 {
                         System.out.println("\nTidak ada data karyawan yang tersimpan.");
                     } else {
                         System.out.println("\nDATA KARYAWAN:");
-                        System.out.printf("%-15s %-15s %-20s %-15s %-15s %-5s %-15s%n", "Nama", "Alamat","Email", "No Telp", "Jenis Kelamin", "Umur", "Kategori");
-                        System.out.println("----------------------------------------------------------------------------------------------------");
+                        System.out.printf("%-15s %-25s %-20s %-15s %-15s %-5s %-15s%n", "Nama", "Alamat","Email", "No Telp", "Jenis Kelamin", "Umur", "Kategori");
+                        System.out.println("--------------------------------------------------------------------------------------------------------------------");
                         for (int i = 0; i < employeeCount; i++) {
                             Modul1 karyawan = employees[i];
-                            System.out.printf("%-15s %-15s %-20s 0%-15d %-15s %-5d %-15s%n",
+                            System.out.printf("%-15s %-25s %-20s 0%-15d %-15s %-5d %-15s%n",
                                     karyawan.nama, karyawan.alamat,karyawan.email, karyawan.noTelp, karyawan.JenisKelamin, karyawan.umur, karyawan.kategoriKaryawan);
                         }
                     }
