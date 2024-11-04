@@ -1,4 +1,3 @@
-package pemdaskelasc;
 import java.util.Scanner;
 
 public class modul2 {
