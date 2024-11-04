@@ -26,7 +26,7 @@ public class Modul1 {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         int m = 0;
-        while (m != 3) {
+        while (m != 4) {
             System.out.print("1. Input data karyawan\n2. Tampilkan list karyawan\n3. Menghitung jumlah gaji dari para karyawan\n4. Keluar\n\nMasukkan angka: ");
             m = sc.nextInt();
             switch (m) {
