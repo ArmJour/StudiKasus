@@ -31,7 +31,7 @@ public class Modul1 {
             m = sc.nextInt();
             switch (m) {
                 case 1 -> {
-                    System.out.println("MASUKKAN JUMLAH KARYAWAN YANG INGIN DIDATA: ");
+                    System.out.print("MASUKKAN JUMLAH KARYAWAN YANG INGIN DIDATA: ");
                     int n = sc.nextInt(); sc.nextLine(); // Input jumlah karyawan yang ingin dimasukkan datanya
                     for (int i = 0; i < n; i++) {
                         Modul1 karyawan = new Modul1();
