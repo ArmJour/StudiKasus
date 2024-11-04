@@ -1,14 +1,4 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package pemdaskelasc;
-
-/**
- *
- * @author ASUS
- */
-
 import java.util.Scanner;
 
 public class modul2 {
@@ -18,59 +8,67 @@ public class modul2 {
 
     public static void main(String[] args) {
         
-        
-        
-        String sudahSelesai = "tidak";
+        //deklarasi variabel-variabel global
+        String sudahSelesai = "ya";//variabel parameter loop terluar
         boolean sudahInputMobil=false;
         
-        while (sudahSelesai.equalsIgnoreCase("tidak")){
-            int opsi = 0;
+        //loop terluar, didesain untuk menegulang program selama sudahSelesai bernilai "ya", dengan begitu user bisa masuk sebagai admin lalu konsumen
+        while (sudahSelesai.equalsIgnoreCase("ya")){
+            
+            int opsi = 0;//reset nilai sekaligus deklarasi variabel lokal loop terluar
             
             //pengguna diminta mengkonfirmasi apakah dia adalah admin aplikasi atau konsumen
             System.out.println("Selamat datang di applikasi kami, anda ingin masuk sebagai admin atau konsumen?");
-            System.out.println("jawab dengan mengetik \"admin\" atau \"konsumen\"");
+            System.out.print("jawab dengan mengetik \"admin\" atau \"konsumen\": ");
             String statusUser = sc.nextLine();
+            System.out.println("");//mencetak line kosong
             
             //jika user memilih konsumen maka ia bisa memilih ingin memesan jasa travel atau persewaan mobil
             if (statusUser.equalsIgnoreCase("konsumen")){
 
                 //pengguna diminta memilih ingin menggunakkan jasa travel atau sewa
                 System.out.println("Apakah anda ingin menggunakan jasa travel atau sewa?");
-                System.out.println("jawab dengan mengetikkan \"travel\" atau \"sewa\"");
+                System.out.print("jawab dengan mengetikkan \"travel\" atau \"sewa\": ");
                 String jenisJasa = sc.nextLine();
+                System.out.println("");//mencetak line kosong
 
                 // jika pengguna memilih sewa maka program akan menampilkan mobil yang tersedia dan meminta pengguna memasukkan berapa lama ia akan menyewanya
                 if (jenisJasa.equalsIgnoreCase("sewa")){
                     if (sudahInputMobil==false){ // jika admin belum memasukkan mobil yang bisa disewakan maka program akan menampilkan exception ke konsumen
-                        System.out.println("Tidak ada mobil yang tersedia :(");
-                    } else {
-                        tampilkanSemuaMobil();
+                        System.out.println("Tidak ada mobil yang tersedia :(\n");
+                    } else { // jika admin sudah menginputkan mobil maka program akan meminta konsumen untuk memilih mobil dan memsasukkan lama penyewaan
+                        System.out.println("Daftar mobil yang tersedia: ");
+                        tampilkanSemuaMobil();//mencetak list mobil yang tersedia
                         System.out.print("Masukkan plat nomor mobil yang anda pilih: ");
                         String noPlatPilihan = sc.nextLine();
                         System.out.print("Masukkan lama jam: ");
                         int jamSewa = sc.nextInt();
                         sc.nextLine();
-                        for (int i = 0; i < jumlahMobil; i++) {
-                            if (cocokkanAtribut(daftarMobil[i], noPlatPilihan)) { // Mengecek apakah mobil cocok dengan nilai pencarian
-                                System.out.printf("%-10s %-15s %-10s %-10s\n", daftarMobil[i][0], daftarMobil[i][1], daftarMobil[i][2], daftarMobil[i][3]);
+                        
+                        boolean ditemukan = false;
+                        for (int i = 0; i < jumlahMobil; i++) {// Mengecek apakah plat mobil yang dimasukkan cocok dengan list
+                            if (cocokkanAtribut(daftarMobil[i], noPlatPilihan)) {
+                                ditemukan = true; //jika setelah di cek melalui loop ada plat yg sama maka variabel parameter akan bernilai true
                             }
                         }
-                        System.out.println("Terimakasih sudah menggunakan jasa kami, berikut pesanan anda:");
-                        if (jamSewa<5 && jamSewa>0){ //seleksi kondisi berdasarkan lama penyewaan mobil
-                            System.out.printf("Tarif awal: Rp%d,00\nBiaya tambahan: Rp%d,00\nTotal tagihan : Rp%d,00", 400000, 100000, 500000);
-                        } else {
-                            System.out.printf("Tarif awal: Rp%d,00\nBiaya tambahan: Rp%d,00\nTotal tagihan : Rp%d,00", 450000, 150000, 600000);
+                        if (!ditemukan) {//jika ternyata plat yang dimasukkan salah maka program akan memunculkan error
+                            System.out.println("Tidak ada mobil dengan plat yang sesuai.\n");
+                        } else { //jika plat yang dimasukkan benar maka program akan mencetak 
+                            System.out.println("Terimakasih sudah menggunakan jasa kami, berikut pesanan anda:");
+                            if (jamSewa<5 && jamSewa>0){ //seleksi kondisi berdasarkan lama penyewaan mobil
+                                System.out.printf("Tarif awal%-10c Rp%d,00\nBiaya tambahan%-10c Rp%d,00\nTotal tagihan %-10c Rp%d,00\n",':', 400000,':', 100000,':', 500000);
+                            } else {
+                                System.out.printf("Tarif awal%-10c Rp%d,00\nBiaya tambahan%-10c Rp%d,00\nTotal tagihan %-10c Rp%d,00\n",':', 450000,':', 150000,':', 600000);
+                            }
                         }
                     }
-
-
                 // jika pengguna memilih travel maka program akan menampilkan menu rute travel yang disediakan
                 } else if (jenisJasa.equalsIgnoreCase("travel")){
 
                     //mencetak menu rute travel
                     System.out.println("Silahkan pilih rute travel: ");
                     System.out.printf("================= Menu =================\n");
-                    System.out.printf("    %-15s %-12s %-12s\n","asal","tujuan","biaya");
+                    System.out.printf("    %-15s %-12s %-10s\n","asal","tujuan","biaya");
                     System.out.printf("1. %-15s %-10s Rp%-10d\n","Surabaya","Malang",100000);
                     System.out.printf("2. %-15s %-10s Rp%-10d\n","Madura","Malang",200000);
                     System.out.printf("3. %-15s %-10s Rp%-10d\n","Banyuwangi","Malang",250000);
@@ -82,7 +80,7 @@ public class modul2 {
                     int biayaTravel=0;
                     System.out.println("Masukkan nomor rute yang anda pilih");
                     int rute = sc.nextInt();
-                    sc.nextLine():
+                    sc.nextLine();
                     switch (rute){
                         case 1 -> biayaTravel=100000;
                         case 2 -> biayaTravel=200000; 
@@ -122,19 +120,19 @@ public class modul2 {
                                 cariMobil();
                                 break;
                             case 4:
-                                System.out.println("Protokol admin selesai.");
+                                System.out.println("Protokol admin selesai.\n");
                                 break; // Keluar dari program
                             default:
                                 System.out.println("Opsi tidak valid. Coba lagi.");
                         }
                     }
-                break;
                 } else {
                     System.out.println("Tolong masukkan sesuai menu");
                 }
         System.out.println("Apakah anda masih ingin menggunakan applikasi?");
         System.out.print("Jawab dengan mengetik \"ya\" atau \"tidak\": ");
         sudahSelesai = sc.nextLine();
+        System.out.println("");//mencetak line kosong
         }
     }
     
@@ -200,7 +198,7 @@ public class modul2 {
         }
 
         if (!ditemukan) {
-            System.out.println("Tidak ada mobil yang sesuai dengan pencarian.");
+            System.out.println("Tidak ada mobil yang sesuai dengan pencarian.\n");
         }
     }
 
@@ -213,4 +211,3 @@ public class modul2 {
                mobil[3].equals(nilai); // tahunKeluaran
     }
 }
-
