@@ -106,7 +106,7 @@ public class Modul1 {
                     // Menampilkan hasil
                     System.out.printf("Gaji bersih karyawan: Rp %.2f%n", gajiBersih);
 
-                    sc.close();
+                
                 }
                 case 4 -> System.out.println("Goodbye!");
             }
