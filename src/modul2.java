@@ -82,6 +82,7 @@ public class modul2 {
                     int biayaTravel=0;
                     System.out.println("Masukkan nomor rute yang anda pilih");
                     int rute = sc.nextInt();
+                    sc.nextLine():
                     switch (rute){
                         case 1 -> biayaTravel=100000;
                         case 2 -> biayaTravel=200000; 
