@@ -7,6 +7,7 @@ public class Modul1 {
     public String nama;
     public String alamat;
     public long noTelp;
+    public String email;
     public String JenisKelamin;
     public int umur;
     public String kategoriKaryawan;
@@ -41,16 +42,19 @@ public class Modul1 {
                         System.out.print("Alamat: ");
                         karyawan.alamat = sc.nextLine();
 
+                        System.out.print("Email: ");
+                        karyawan.email = sc.nextLine();
+
                         System.out.print("No Telp: ");
                         karyawan.noTelp = sc.nextLong();
-                        sc.nextLine(); // Consume newline character
+                        sc.nextLine();
 
                         System.out.print("Jenis kelamin: ");
                         karyawan.JenisKelamin = sc.nextLine();
 
                         System.out.print("Umur: ");
                         karyawan.umur = sc.nextInt();
-                        sc.nextLine(); // Consume newline character
+                        sc.nextLine();
 
                         System.out.print("Kategori Karyawan: ");
                         karyawan.kategoriKaryawan = sc.nextLine();
@@ -65,12 +69,12 @@ public class Modul1 {
                         System.out.println("\nTidak ada data karyawan yang tersimpan.");
                     } else {
                         System.out.println("\nDATA KARYAWAN:");
-                        System.out.printf("%-15s %-15s %-15s %-15s %-5s %-15s%n", "Nama", "Alamat", "No Telp", "Jenis Kelamin", "Umur", "Kategori");
-                        System.out.println("------------------------------------------------------------------------------");
+                        System.out.printf("%-15s %-15s %-20s %-15s %-15s %-5s %-15s%n", "Nama", "Alamat","Email", "No Telp", "Jenis Kelamin", "Umur", "Kategori");
+                        System.out.println("----------------------------------------------------------------------------------------------------");
                         for (int i = 0; i < employeeCount; i++) {
                             Modul1 karyawan = employees[i];
-                            System.out.printf("%-15s %-15s 0%-15d %-15s %-5d %-15s%n",
-                                    karyawan.nama, karyawan.alamat, karyawan.noTelp, karyawan.JenisKelamin, karyawan.umur, karyawan.kategoriKaryawan);
+                            System.out.printf("%-15s %-15s %-20s 0%-15d %-15s %-5d %-15s%n",
+                                    karyawan.nama, karyawan.alamat,karyawan.email, karyawan.noTelp, karyawan.JenisKelamin, karyawan.umur, karyawan.kategoriKaryawan);
                         }
                     }
                     System.out.println();
@@ -87,19 +91,19 @@ public class Modul1 {
 
                     // Validasi input kategori
                     if (kategoriIndex < 0 || kategoriIndex >= kategori.length) {
-                        System.out.println("Kategori tidak valid.");
+                        System.out.println("\nKategori tidak valid.");
                         return;
                     }
 
                     // Meminta input jam lembur
-                    System.out.print("Masukkan jumlah jam lembur: ");
+                    System.out.print("\nMasukkan jumlah jam lembur: ");
                     int jamLembur = sc.nextInt();
 
                     // Menghitung gaji bersih
                     double gajiBersih = hitungGajiBersih(kategoriIndex, jamLembur);
 
                     // Menampilkan hasil
-                    System.out.printf("Gaji bersih karyawan: Rp %.2f%n", gajiBersih);
+                    System.out.printf("\nGaji bersih karyawan: Rp %.2f%n", gajiBersih);
 
                     sc.close();
                 }
@@ -109,11 +113,12 @@ public class Modul1 {
     }
 
     // Method untuk mengatur mendetail biodata yang memuat nama, alamat, no telp, jenis kelamin, umur, dan kategori karyawan.
-    public void datakaryawan(String name, String alamat, long noTelp, String JenisKelamin, int umur, String kategoriKaryawan) {
+    public void datakaryawan(String name, String alamat, long noTelp, String email, String JenisKelamin, int umur, String kategoriKaryawan) {
 
         this.nama = name;
         this.alamat = alamat;
         this.noTelp = noTelp;
+        this.email = email;
         this.JenisKelamin = JenisKelamin;
         this.umur = umur;
         this.kategoriKaryawan = kategoriKaryawan;
