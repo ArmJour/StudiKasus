@@ -87,19 +87,19 @@ public class Modul1 {
 
                     // Validasi input kategori
                     if (kategoriIndex < 0 || kategoriIndex >= kategori.length) {
-                        System.out.println("\nKategori tidak valid.");
+                        System.out.println("Kategori tidak valid.");
                         return;
                     }
 
                     // Meminta input jam lembur
-                    System.out.print("\nMasukkan jumlah jam lembur: ");
+                    System.out.print("Masukkan jumlah jam lembur: ");
                     int jamLembur = sc.nextInt();
 
                     // Menghitung gaji bersih
                     double gajiBersih = hitungGajiBersih(kategoriIndex, jamLembur);
 
                     // Menampilkan hasil
-                    System.out.printf("\nGaji bersih karyawan: Rp %.2f%n", gajiBersih);
+                    System.out.printf("Gaji bersih karyawan: Rp %.2f%n", gajiBersih);
 
                     sc.close();
                 }
