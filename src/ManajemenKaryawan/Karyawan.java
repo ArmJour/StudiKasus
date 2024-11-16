@@ -4,14 +4,15 @@ public class Karyawan {
     
     private String nama;
     private String alamat;
-    private long noTelp;
+    private String noTelp;
     private String email;
     private char jenisKelamin;
     private int umur;
     private String kategoriKaryawan;
+    public int length;
 
     //Constructor
-    public Karyawan(String nama, String alamat, String email, long noTelp, char jenisKelamin, int umur, String kategoriKaryawan) {
+    public Karyawan(String nama, String alamat, String email, String noTelp, char jenisKelamin, int umur, String kategoriKaryawan) {
         this.nama = nama;
         this.alamat = alamat;
         this.email = email;
@@ -27,7 +28,7 @@ public class Karyawan {
 
     public String getEmail() {return email;}
     
-    public long getNoTelp() {return noTelp;}
+    public String getNoTelp() {return noTelp;}
 
     public char getJenisKelamin() {return jenisKelamin;}
 
