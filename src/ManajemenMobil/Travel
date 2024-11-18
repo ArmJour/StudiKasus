@@ -5,7 +5,7 @@ public class Travel {
     private String tujuan;
     private int biaya;
 
-    public Travel(String asal,String tujua){
+    public Travel(String asal,String tujuan){
         this.asal = asal;
         this.tujuan = tujuan;
         this.biaya = biaya;
