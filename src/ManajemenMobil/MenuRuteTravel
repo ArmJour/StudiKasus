@@ -20,5 +20,22 @@ public class MenuRuteTravel {
         }
 
         System.out.printf("========================================\n");
+
+        // Meminta input pengguna untuk memilih rute
+        System.out.println("Masukkan nomor rute yang anda pilih: ");
+        int rute = sc.nextInt();
+        sc.nextLine();
+
+        // Memproses pilihan rute dan menghitung biaya
+        int biayaTravel = 0;
+        if (rute > 0 && rute <= ruteList.length) {
+            biayaTravel = ruteList[rute - 1].getBiaya();
+        } else {
+            System.out.println("Nomor rute yang anda masukkan tidak valid.");
+            return;
+        }
+
+        // Menampilkan tagihan
+        System.out.printf("Terimakasih sudah menggunakan jasa kami, total tagihan anda Rp%d\n", biayaTravel);
     }
 }
