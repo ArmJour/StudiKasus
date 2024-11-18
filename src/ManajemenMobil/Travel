@@ -1,0 +1,23 @@
+package ManajemenMobil;
+
+public class Travel {
+    private String asal;
+    private String tujuan;
+    private int biaya;
+
+    public Travel(String asal,String tujua){
+        this.asal = asal;
+        this.tujuan = tujuan;
+        this.biaya = biaya;
+    }
+
+    public String getAsal() {
+        return asal;
+    }
+    public String getTujuan() {
+        return tujuan;
+    }
+    public int getBiaya() {
+        return biaya;
+    }
+}
