@@ -14,7 +14,21 @@ public class ManajerMobil {
         jumlahMobil = 0;
         sc = new Scanner(System.in);
     }
-
+    
+    public boolean cekNoPlatMobil(String noPlatPilihan){
+         for (int i = 0; i < jumlahMobil; i++) {
+            Mobil car = mobil[i];
+                if (cocokkanAtribut(car, noPlatPilihan)) {
+                return true;
+            }
+        }
+        return false;
+    }
+    
+    public int getJumlahMobil() {
+    return jumlahMobil;
+    }
+    
     public void inputDataMobil() {
         if(jumlahMobil == mobil.length){
             ubahUkuranArray();
@@ -37,6 +51,7 @@ public class ManajerMobil {
 
         mobil[jumlahMobil++] = new Mobil(noPlat, merkMobil, warnaMobil, tahunKeluaran);
         System.out.println("Data mobil berhasil ditambahkan.");
+
     }
 
     public void cariMobil(){
